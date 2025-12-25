@@ -44,26 +44,27 @@ export default function Header({ variant = 'transparent' }: HeaderProps) {
               <Image
                 src={showWhiteHeader ? "/assets/img/logo/footer-logo-1.png" : "/assets/img/logo/logo-2.png"}
                 alt={siteContent.siteName}
-                width={160}
-                height={50}
-                className="h-10 w-auto"
+                width={300}
+                height={100}
+                className={`transition-all duration-300 w-auto ${showWhiteHeader ? 'h-16' : 'h-24'}`}
                 priority
               />
             </Link>
 
             {/* Desktop Navigation - Centered */}
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-10">
               {siteContent.navigation.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-[13px] font-medium tracking-wide transition-colors duration-200 ${
+                  className={`text-[18px] font-medium tracking-wide transition-all duration-300 relative group ${
                     showWhiteHeader 
                       ? 'text-[#083d59] hover:text-[#a3b18a]' 
-                      : 'text-white/90 hover:text-white'
+                      : 'text-white hover:text-[#a3b18a]'
                   }`}
                 >
                   {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#a3b18a] transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
             </nav>
@@ -72,7 +73,7 @@ export default function Header({ variant = 'transparent' }: HeaderProps) {
             <div className="flex items-center gap-4">
               <Link
                 href="/contact"
-                className="hidden md:inline-flex bg-[#a3b18a] hover:bg-[#8a9a73] text-white px-6 py-2.5 transition-colors duration-200 text-[13px] font-medium"
+                className="hidden md:inline-flex bg-[#a3b18a] hover:bg-[#8a9a73] text-white px-8 py-3 transition-all duration-300 text-[16px] font-medium hover:scale-105"
               >
                 Contact Us
               </Link>

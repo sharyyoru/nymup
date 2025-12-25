@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { ChevronDown } from 'lucide-react';
 import { getHomeContent } from '@/lib/content';
 
 export default function HeroSlider() {
@@ -16,6 +17,13 @@ export default function HeroSlider() {
     }, 6000);
     return () => clearInterval(timer);
   }, [slides.length]);
+
+  const scrollToNextSection = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <section className="relative h-screen overflow-hidden bg-[#083d59]">
@@ -42,23 +50,23 @@ export default function HeroSlider() {
       <div className="container mx-auto px-4 lg:px-8 h-full flex items-center relative z-10">
         <div className="w-full text-center">
           {/* Tags */}
-          <div className="flex justify-center gap-6 mb-8">
+          <div className="flex justify-center gap-8 mb-10">
             {mounted && slides[currentSlide]?.tags.map((tag, i) => (
               <span
                 key={i}
-                className="text-white/70 text-[13px] tracking-[2px] relative"
+                className="text-white/80 text-[18px] tracking-[3px] relative"
               >
                 {tag}
                 {i < slides[currentSlide].tags.length - 1 && (
-                  <span className="absolute -right-4 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-white/30 rounded-full"></span>
+                  <span className="absolute -right-5 top-1/2 -translate-y-1/2 w-2 h-2 bg-white/40 rounded-full"></span>
                 )}
               </span>
             ))}
           </div>
 
-          {/* Title */}
+          {/* Title - 3x bigger */}
           <h1 
-            className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1] max-w-4xl mx-auto"
+            className="text-6xl md:text-7xl lg:text-8xl xl:text-[140px] font-bold text-white leading-[1.05] max-w-6xl mx-auto"
             style={{ fontFamily: "'GT Walsheim Pro', sans-serif" }}
           >
             {mounted ? slides[currentSlide]?.title : slides[0]?.title}
@@ -68,20 +76,34 @@ export default function HeroSlider() {
 
       {/* Slide Indicators */}
       {mounted && (
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-3 z-20">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              className={`h-2 rounded-full transition-all duration-300 ${
                 currentSlide === index
-                  ? 'bg-white w-8'
-                  : 'bg-white/40 hover:bg-white/60'
+                  ? 'bg-white w-10'
+                  : 'bg-white/40 w-3 hover:bg-white/60'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
+      )}
+
+      {/* Animated Go Down Button */}
+      {mounted && (
+        <button
+          onClick={scrollToNextSection}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-white/80 hover:text-white transition-colors group"
+          aria-label="Scroll down"
+        >
+          <span className="text-sm uppercase tracking-[3px] font-medium">Scroll</span>
+          <div className="animate-bounce">
+            <ChevronDown className="w-8 h-8" />
+          </div>
+        </button>
       )}
     </section>
   );
