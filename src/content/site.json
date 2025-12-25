@@ -19,6 +19,7 @@
   "navigation": [
     { "label": "Home", "href": "/" },
     { "label": "About Us", "href": "/about" },
+    { "label": "Our Team", "href": "/team" },
     { "label": "Investments", "href": "/investments" }
   ],
   "footerLinks": {

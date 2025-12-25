@@ -1,0 +1,48 @@
+{
+  "pageTitle": "Our Team",
+  "breadcrumb": "Team",
+  "heroImage": "/assets/img/page-title/page-title-bg1.jpg",
+  "intro": {
+    "semiTitle": "Meet Our Experts",
+    "title": "The People Behind Niyamo",
+    "description": "Our team brings together decades of experience in investment, hospitality, and real estate. We are dedicated to creating lasting value for our partners and stakeholders."
+  },
+  "members": [
+    {
+      "id": "member-1",
+      "name": "Jenna Smith",
+      "role": "Managing Director",
+      "image": "/assets/img/team/team-1.jpg",
+      "bio": "Jenna leads Niyamo Capital with over 15 years of experience in investment management and strategic development.",
+      "email": "jenna@niyamocapital.com",
+      "linkedin": ""
+    },
+    {
+      "id": "member-2",
+      "name": "Michael Chen",
+      "role": "Head of Investments",
+      "image": "/assets/img/team/team-2.jpg",
+      "bio": "Michael oversees our investment portfolio, bringing expertise in hospitality and real estate acquisitions.",
+      "email": "",
+      "linkedin": ""
+    },
+    {
+      "id": "member-3",
+      "name": "Sarah Williams",
+      "role": "Director of Operations",
+      "image": "/assets/img/team/team-3.jpg",
+      "bio": "Sarah ensures smooth operations across all our portfolio companies and investments.",
+      "email": "",
+      "linkedin": ""
+    },
+    {
+      "id": "member-4",
+      "name": "David Brown",
+      "role": "Financial Controller",
+      "image": "/assets/img/team/team-4.jpg",
+      "bio": "David manages financial planning and analysis, ensuring strong returns for our stakeholders.",
+      "email": "",
+      "linkedin": ""
+    }
+  ]
+}

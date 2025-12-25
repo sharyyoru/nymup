@@ -13,6 +13,7 @@ import {
   Shield,
   LayoutDashboard,
   LogOut,
+  Users,
 } from 'lucide-react';
 
 const sidebarLinks = [
@@ -20,6 +21,7 @@ const sidebarLinks = [
   { href: '/admin/site', label: 'Site Settings', icon: Settings },
   { href: '/admin/home', label: 'Home Page', icon: Home },
   { href: '/admin/about', label: 'About Page', icon: FileText },
+  { href: '/admin/team', label: 'Team', icon: Users },
   { href: '/admin/investments', label: 'Investments', icon: Briefcase },
   { href: '/admin/pages', label: 'Legal Pages', icon: Shield },
   { href: '/admin/media', label: 'Media Library', icon: ImageIcon },

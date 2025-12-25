@@ -31,15 +31,15 @@ export default function Footer() {
 
           {/* Our Investments */}
           <div>
-            <h6 className="text-white font-bold text-[18px] uppercase tracking-[3px] mb-8">
+            <h6 className="text-white font-bold text-[16px] uppercase tracking-[2px] mb-6 pb-4 border-b border-white/20">
               Our Investments
             </h6>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {siteContent.footerLinks.investments.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white hover:text-[#a3b18a] transition-colors text-[18px]"
+                    className="text-white/80 hover:text-[#a3b18a] transition-colors text-[16px]"
                   >
                     {link.label}
                   </Link>
@@ -50,15 +50,15 @@ export default function Footer() {
 
           {/* Corporate */}
           <div>
-            <h6 className="text-white font-bold text-[18px] uppercase tracking-[3px] mb-8">
+            <h6 className="text-white font-bold text-[16px] uppercase tracking-[2px] mb-6 pb-4 border-b border-white/20">
               Corporate
             </h6>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {siteContent.footerLinks.corporate.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white hover:text-[#a3b18a] transition-colors text-[18px]"
+                    className="text-white/80 hover:text-[#a3b18a] transition-colors text-[16px]"
                   >
                     {link.label}
                   </Link>
@@ -69,15 +69,15 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h6 className="text-white font-bold text-[18px] uppercase tracking-[3px] mb-8">
+            <h6 className="text-white font-bold text-[16px] uppercase tracking-[2px] mb-6 pb-4 border-b border-white/20">
               Legal
             </h6>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {siteContent.footerLinks.legal.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white hover:text-[#a3b18a] transition-colors text-[18px]"
+                    className="text-white/80 hover:text-[#a3b18a] transition-colors text-[16px]"
                   >
                     {link.label}
                   </Link>
