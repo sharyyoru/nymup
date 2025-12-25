@@ -46,14 +46,14 @@
     {
       "id": "bkc",
       "slug": "bkc",
-      "name": "BKC London",
+      "name": "Biryani Kebab Chai",
       "location": "Location",
       "thumbnail": "/assets/restaurants/bkc-01.jpg",
       "heroImage": "/assets/restaurants/bkc-01.jpg",
       "story": {
         "title": "Our Story",
         "content": "At BKC, the dishes are thoughtfully curated by our Head Chef – Arsh Thakur, following the age-old Awadhi cooking techniques using the freshest British produce, sourced from the local farms and brought straight to your tables.",
-        "additional": "At BKC the dishes are thoughtfully curated by our Head Chef – Arsh Thakur, following the age old Awadhi cooking techniques using the freshest British produce, sourced from the local farms and brought straight to your tables."
+        "additional": "At BKC the dishes are thoughtfully curated by our Head Chef – Arsh Thakur, following the age old Awadhi cooking techniques using the freshest British produce, sourced from the local farms and brought straight to your tables.s"
       },
       "vision": {
         "title": "Our Soul of Lucknow",
@@ -75,14 +75,18 @@
       "heroImage": "/assets/restaurants/coup-01.jpg",
       "story": {
         "title": "Our Story",
-        "content": "Coupette is an award-winning cocktail bar located in Bethnal Green, East London. Known for its innovative approach to classic cocktails and warm hospitality.",
-        "additional": ""
+        "content": "Coupette, a French-inspired cocktail bar in Bethnal Green, shines as one of London's best cocktail bars in East London since its 2017 opening. Coupettes intimate, soft lighting that dances upon the walls, casts shadows that whisper secrets of French romance and intrigue.",
+        "additional": "With every step, you're enveloped in an atmosphere of allure at this standout cocktail bar and restaurant in London. Vintage coins adorning the bar top evoke a sense of nostalgia, while modern artwork infuses the space with a playful sophistication. This acclaimed spot not only captivates with its setting, but also with its innovative cocktails, making it a must-visit in London."
       },
       "vision": {
-        "title": "The Experience",
-        "content": "Experience world-class cocktails in an intimate setting. Coupette has been recognized as one of the best bars in the world."
+        "title": "Concept",
+        "content": "Nestled in Bethnal Green, London Coupette combines French elegance with modern sophistication, featuring soft lighting, vintage coins, and playful artwork, creating a charming atmosphere where old-world Paris meets vibrant London. We take pride in being the best cocktail bar in this vibrant neighborhood, offering an exquisite blend of artisanal cocktails, French-inspired tapas, and an ambiance that will transport you to the streets of Paris. You've come to the right place if you're seeking the perfect blend of creativity, flavor, and style."
       },
-      "gallery": [],
+      "gallery": [
+        "/assets/restaurants/coup-02.jpg",
+        "/assets/restaurants/coup-03.jpg",
+        "/assets/restaurants/coup-04.jpg"
+      ],
       "features": []
     },
     {
@@ -93,15 +97,19 @@
       "thumbnail": "/assets/restaurants/2430-01.jpg",
       "heroImage": "/assets/restaurants/2430-01.jpg",
       "story": {
-        "title": "Our Story",
-        "content": "24 & 30 Sussex Gardens represents prime central London real estate investment.",
-        "additional": ""
+        "title": "24 & 30 Sussex Gardens",
+        "content": "Enjoy bed and breakfast with en-suite bathrooms, all just moments from London's premier shopping destination, Oxford Street. OYO London 24 & 30 Sussex Gardens offers a smart, welcoming, and fuss-free stay. Each of our well-appointed bedrooms is clean, comfortable, and equipped with a smart TV and complimentary Wi-Fi.",
+        "additional": "Whether you're exploring waxworks or seeking livelier attractions, you'll find OYO London 24 & 30 Sussex Gardens the perfect place to return to—just a short stroll away, ensuring restful comfort after a day of discovery."
       },
       "vision": {
-        "title": "The Property",
-        "content": "Located in a prestigious London location, these properties represent stable real estate investment opportunities."
+        "title": "Location & Transportation",
+        "content": "Our lodging is situated 2 miles from The British Museum, 2 miles from Hyde Park and 2 miles from Trafalgar Square. The hotel is 11 miles away from London City Airport."
       },
-      "gallery": [],
+      "gallery": [
+        "/assets/restaurants/2430-02.jpg",
+        "/assets/restaurants/2430-03.jpg",
+        "/assets/restaurants/2430-04.jpg"
+      ],
       "features": []
     },
     {
@@ -112,15 +120,19 @@
       "thumbnail": "/assets/restaurants/joyce-01.jpg",
       "heroImage": "/assets/restaurants/joyce-01.jpg",
       "story": {
-        "title": "Our Story",
-        "content": "The Joyce Restaurant offers a unique dining experience with contemporary cuisine.",
-        "additional": ""
+        "title": "James Taylor - The Chef",
+        "content": "Chef James Taylor has enchanted culinary enthusiasts and food critics across the U.S. for over a decade. After training at Le Cordon Bleu Chicago, he honed his epicurean skills and expertise at Bavette's Bar and Boeuf Steakhouse (Hogsalt Hospitality)",
+        "additional": "For over a decade, Chef James Taylor has captivated both culinary enthusiasts and critics throughout the United States. Trained at Le Cordon Bleu Chicago, he perfected his craft at Bavette's Bar and Boeuf Steakhouse (Hogsalt Hospitality) before taking on leadership roles at the Michelin-starred institutions Roister (★) and Alinea (★★★)."
       },
       "vision": {
-        "title": "The Experience",
-        "content": "A destination for food lovers seeking exceptional quality and service."
+        "title": "Concept",
+        "content": "Since 2021, he has dedicated his talents to an exclusive roster of private clients, whose acclaim and encouragement spurred him to bring his culinary expertise to a broader stage."
       },
-      "gallery": [],
+      "gallery": [
+        "/assets/restaurants/joyce-02.jpg",
+        "/assets/restaurants/joyce-03.jpg",
+        "/assets/restaurants/joyce-04.jpg"
+      ],
       "features": []
     },
     {
@@ -154,34 +166,42 @@
       "thumbnail": "/assets/restaurants/ramen-01.jpg",
       "heroImage": "/assets/restaurants/ramen-01.jpg",
       "story": {
-        "title": "Our Story",
-        "content": "Ramen Me! brings authentic Japanese ramen to London.",
-        "additional": ""
+        "title": "Ramen Me! Porto: An Authentic Taste of Japan",
+        "content": "Located in Porto, Portugal, Ramen Me! has established itself as a must-visit destination for ramen enthusiasts. The restaurant stands out for its commitment to authenticity, crafting flavorful broths from scratch and making its own noodles—a rarity in a city where many ramen places rely on shortcuts. The food is celebrated for its rich, complex flavors and perfectly textured noodles.",
+        "additional": "The menu at Ramen Me! is a tribute to traditional Japanese ramen, with a focus on quality and fresh ingredients. Diners rave about the various options available, from classic broths to unique variations, ensuring there's a bowl to satisfy every craving."
       },
       "vision": {
-        "title": "The Experience",
-        "content": "Traditional ramen crafted with passion and authentic ingredients."
+        "title": "Concept",
+        "content": "Beyond the food, the restaurant is known for its cool, welcoming ambiance. The service is often described as excellent, with attentive and friendly staff who contribute to a memorable dining experience. For those seeking a taste of genuine Japanese ramen, Ramen Me! offers a delicious and authentic escape right in the heart of Porto."
       },
-      "gallery": [],
+      "gallery": [
+        "/assets/restaurants/ramen-02.jpg",
+        "/assets/restaurants/ramen-03.jpg",
+        "/assets/restaurants/ramen-04.jpg"
+      ],
       "features": []
     },
     {
       "id": "thamel",
       "slug": "thamel",
-      "name": "Thamel Restaurant Porto",
+      "name": "Thamel",
       "location": "Location",
       "thumbnail": "/assets/restaurants/thamel-01.jpg",
       "heroImage": "/assets/restaurants/thamel-01.jpg",
       "story": {
-        "title": "Our Story",
-        "content": "Thamel Restaurant brings authentic Nepalese cuisine to Porto.",
-        "additional": ""
+        "title": "The Vision",
+        "content": "Thamel Restaurant & Cocktails in Porto, Portugal, offers a unique and diverse culinary experience. The restaurant's philosophy is to take its customers on a culinary journey through Nepal, Tibet, China, India, and even parts of the American Southwest.",
+        "additional": "The menu is a rich fusion of Asian cuisines, featuring traditional dishes like Nepalese momos (dumplings), Tibetan soups, and classic Chinese and Thai dishes such as Pad Thai and various curries. The Thamel Thali is a popular Nepalese platter that allows you to sample a variety of curries. The restaurant also has a strong focus on vegan and vegetarian options, with many dishes, including the Thali, available in a plant-based version. To complement the food, they offer a selection of signature cocktails made with fresh fruits and spices."
       },
       "vision": {
-        "title": "The Experience",
-        "content": "Experience the flavors of Nepal in the heart of Porto."
+        "title": "Concept",
+        "content": "With a cozy atmosphere, friendly staff, and a wide variety of flavorful dishes, Thamel is a great choice for those looking to explore a diverse range of Asian flavors in the heart of Porto."
       },
-      "gallery": [],
+      "gallery": [
+        "/assets/restaurants/thamel-02.jpg",
+        "/assets/restaurants/thamel-03.jpg",
+        "/assets/restaurants/thamel-04.jpg"
+      ],
       "features": []
     },
     {
@@ -193,14 +213,18 @@
       "heroImage": "/assets/restaurants/byron-01.jpg",
       "story": {
         "title": "Our Story",
-        "content": "Byron is known for its premium burgers and casual dining experience.",
-        "additional": ""
+        "content": "In 2007, Byron's founder returned from the USA and set out on a mission to bring indulgent and satisfying burgers to the UK, transforming the British burger scene.",
+        "additional": "Ever since, Byron has taken pride in creating proper burgers and continues to strive for the best burger this side of the pond. Serving proper burgers means working with great partners to ensure top quality ingredients for our guests."
       },
       "vision": {
-        "title": "The Brand",
-        "content": "Quality burgers made with the finest British beef."
+        "title": "Our Beef",
+        "content": "Proper burgers need proper beef. We have worked with Alden's, a Oxford based family run butcher since 1793, to create our signature Byron patties. We're proud to work with a prestigious butcher which is also focused on the future, finding ways to improve their sustainability, whilst creating top quality beef patties. Our beef is sourced in the South West of England. Selected cuts of Brisket, Chuck and Rip Cap are then dry aged to bring out a deeper meatier flavour before being ground into our Byron patties."
       },
-      "gallery": [],
+      "gallery": [
+        "/assets/restaurants/byron-02.jpg",
+        "/assets/restaurants/byron-03.png",
+        "/assets/restaurants/byron-04.jpg"
+      ],
       "features": []
     }
   ]

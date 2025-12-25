@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import {
   Home,
   FileText,
@@ -12,6 +12,7 @@ import {
   Mail,
   Shield,
   LayoutDashboard,
+  LogOut,
 } from 'lucide-react';
 
 const sidebarLinks = [
@@ -27,6 +28,49 @@ const sidebarLinks = [
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Check authentication on client side
+    const auth = localStorage.getItem('niyamo_admin_auth');
+    if (pathname === '/admin/login') {
+      setIsLoading(false);
+      return;
+    }
+    if (!auth) {
+      router.push('/admin/login');
+    } else {
+      setIsAuthenticated(true);
+    }
+    setIsLoading(false);
+  }, [pathname, router]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('niyamo_admin_auth');
+    localStorage.removeItem('niyamo_admin_user');
+    router.push('/admin/login');
+  };
+
+  // Show login page without sidebar
+  if (pathname === '/admin/login') {
+    return <>{children}</>;
+  }
+
+  // Show loading state
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#c9a96e]"></div>
+      </div>
+    );
+  }
+
+  // Show nothing if not authenticated (will redirect)
+  if (!isAuthenticated) {
+    return null;
+  }
 
   return (
     <div className="flex min-h-screen bg-gray-100">
@@ -59,13 +103,20 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             })}
           </ul>
         </nav>
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-white/10">
+        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-white/10 space-y-2">
           <Link
             href="/"
             className="flex items-center justify-center gap-2 text-white/70 hover:text-white transition-colors"
           >
             View Website →
           </Link>
+          <button
+            onClick={handleLogout}
+            className="w-full flex items-center justify-center gap-2 text-red-400 hover:text-red-300 transition-colors py-2"
+          >
+            <LogOut className="w-4 h-4" />
+            Logout
+          </button>
         </div>
       </aside>
 
