@@ -1,0 +1,62 @@
+{
+  "hero": {
+    "slides": [
+      {
+        "id": 1,
+        "backgroundImage": "/assets/img/slider/hero-bg-2a.jpg",
+        "tags": ["Luxury", "Business", "Experiences"],
+        "title": "Where Vision Meets Destination",
+        "buttonText": "",
+        "buttonLink": ""
+      },
+      {
+        "id": 2,
+        "backgroundImage": "/assets/img/slider/hero-bg-2b.jpg",
+        "tags": ["Luxury", "Business", "Experiences"],
+        "title": "Crafting Tomorrow's Landmarks",
+        "buttonText": "Contact Us",
+        "buttonLink": "/contact"
+      }
+    ]
+  },
+  "about": {
+    "semiTitle": "AT NIYAMO",
+    "title": "Our Vision is Clear",
+    "description": "To be a trusted and impactful investment firm dedicated to empowering our partners. We understand that true financial success isn't just about quick wins; it's about building a secure future. That's why we focus on strategically <strong>cultivating worthwhile investments</strong> that prioritize stable, long-term returns and contribute positively to enduring value creation.",
+    "image": "/assets/img/about/about-232.jpg",
+    "highlight": "Stable Returns. Lasting Value.",
+    "highlightText": "We focus on investments that offer predictable performance and capital preservation, aiming for sustained growth and reliable long-term returns rather than just short-term gains.",
+    "buttonText": "Contact Us",
+    "buttonLink": "/contact",
+    "features": [
+      {
+        "title": "What we do",
+        "subtitle": "Building a Robust Foundation",
+        "image": "/assets/img/about/about-2.jpg",
+        "link": "/about"
+      },
+      {
+        "title": "A Trusted Partner",
+        "subtitle": "Comitted to Long-term Success",
+        "image": "/assets/img/about/about-3.jpg",
+        "link": "/about"
+      },
+      {
+        "title": "Expertise and Prudent Management",
+        "subtitle": "Consistent delivery of returns",
+        "image": "/assets/img/about/about-4.jpg",
+        "link": "/about"
+      },
+      {
+        "title": "Focus on Stability",
+        "subtitle": "A proven track record",
+        "image": "/assets/img/about/about-5.jpg",
+        "link": "/about"
+      }
+    ]
+  },
+  "portfolio": {
+    "semiTitle": "Niyamo Investments",
+    "title": "Our Portfolio of Investments"
+  }
+}

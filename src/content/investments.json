@@ -1,0 +1,207 @@
+{
+  "pageTitle": "Our Investments",
+  "breadcrumb": "Investments",
+  "heroImage": "/assets/img/portfolio/portfolio-25.jpg",
+  "intro": {
+    "title": "Investment",
+    "content": "We offer an investment opportunity through Niyamo Capital UK Ltd, providing stable returns via a lending deal backed by fast-growing companies and prime central London real estate. This dual security structure ensures predictable returns, combining the growth of high-potential businesses with the reliability of premium real estate."
+  },
+  "portfolioSection": {
+    "semiTitle": "Niyamo Investments",
+    "title": "Our Portfolio of Investments"
+  },
+  "items": [
+    {
+      "id": "16charles",
+      "slug": "16charles",
+      "name": "16 Charles Street",
+      "location": "Location",
+      "thumbnail": "/assets/restaurants/16s-01.jpg",
+      "heroImage": "/assets/restaurants/16s-01.jpg",
+      "story": {
+        "title": "Our Story",
+        "content": "During 2021, the team began developing its plans to restore 16 Charles Street to its former glory and bring it into public use for everyone to enjoy. The new restaurant will be a discreet fine-dining experience committed to exceptional quality and the highest standards of service.",
+        "additional": "Last year, 16 CS Operations Limited, part of Loulou Groupe, successfully applied for a Certificate of Lawfulness for the use of the building as a restaurant (Use Class E) and a Premises Licence. With the planning use and premises licence now in place, the team has recently submitted another application to Westminster City Council for Planning and Listed Building Consents."
+      },
+      "vision": {
+        "title": "Our Vision",
+        "content": "16 Charles Street, located in the heart of Mayfair, on the north side of Charles Street, opposite the junction with Queen Square. The area is well-served by a wide range of local businesses and is within easy walking distance to Green Park underground station. The building is in the Mayfair Conservation Area and the Core Central Activities Zone."
+      },
+      "gallery": [
+        "/assets/restaurants/16s-01.jpg",
+        "/assets/restaurants/16s-02.jpg",
+        "/assets/restaurants/16s-03.jpg"
+      ],
+      "features": [
+        {
+          "title": "The Experience",
+          "content": "Here, Dame Margaret hosted society soirees where she entertained politicians, royalty and celebrities. The building was later redesigned by the prestigious and architectural partnership of Mewès and Davis, best known for designing the Ritz Hotel on Piccadilly."
+        },
+        {
+          "title": "The Future",
+          "content": "Together, they invested in the property to enhance its suitability for entertaining. In recent years, the building has served as office space, but it now stands vacant—ready for a new lease of life. The images below provide a current view of the building and its interiors."
+        }
+      ]
+    },
+    {
+      "id": "bkc",
+      "slug": "bkc",
+      "name": "BKC London",
+      "location": "Location",
+      "thumbnail": "/assets/restaurants/bkc-01.jpg",
+      "heroImage": "/assets/restaurants/bkc-01.jpg",
+      "story": {
+        "title": "Our Story",
+        "content": "At BKC, the dishes are thoughtfully curated by our Head Chef – Arsh Thakur, following the age-old Awadhi cooking techniques using the freshest British produce, sourced from the local farms and brought straight to your tables.",
+        "additional": "At BKC the dishes are thoughtfully curated by our Head Chef – Arsh Thakur, following the age old Awadhi cooking techniques using the freshest British produce, sourced from the local farms and brought straight to your tables."
+      },
+      "vision": {
+        "title": "Our Soul of Lucknow",
+        "content": "You'll find the soul of Lucknow in our expertly prepared Lucknow Biryani, succulent North Indian kebabs, and the comforting warmth of our aromatic chai. Whether you're in search of the best Biryani near you, or the best Kathi roll in London, BKC London is your gateway to the finest Indian cuisine, making it a standout Indian restaurant in Soho and Mayfair, London."
+      },
+      "gallery": [
+        "/assets/restaurants/bkc-02.jpg",
+        "/assets/restaurants/bkc-03.jpg",
+        "/assets/restaurants/bkc-04.jpg"
+      ],
+      "features": []
+    },
+    {
+      "id": "coupette",
+      "slug": "coupette",
+      "name": "Coupette",
+      "location": "Location",
+      "thumbnail": "/assets/restaurants/coup-01.jpg",
+      "heroImage": "/assets/restaurants/coup-01.jpg",
+      "story": {
+        "title": "Our Story",
+        "content": "Coupette is an award-winning cocktail bar located in Bethnal Green, East London. Known for its innovative approach to classic cocktails and warm hospitality.",
+        "additional": ""
+      },
+      "vision": {
+        "title": "The Experience",
+        "content": "Experience world-class cocktails in an intimate setting. Coupette has been recognized as one of the best bars in the world."
+      },
+      "gallery": [],
+      "features": []
+    },
+    {
+      "id": "2430",
+      "slug": "2430",
+      "name": "24 & 30 Sussex Gardens",
+      "location": "Location",
+      "thumbnail": "/assets/restaurants/2430-01.jpg",
+      "heroImage": "/assets/restaurants/2430-01.jpg",
+      "story": {
+        "title": "Our Story",
+        "content": "24 & 30 Sussex Gardens represents prime central London real estate investment.",
+        "additional": ""
+      },
+      "vision": {
+        "title": "The Property",
+        "content": "Located in a prestigious London location, these properties represent stable real estate investment opportunities."
+      },
+      "gallery": [],
+      "features": []
+    },
+    {
+      "id": "thejoyce",
+      "slug": "thejoyce",
+      "name": "The Joyce Restaurant",
+      "location": "Location",
+      "thumbnail": "/assets/restaurants/joyce-01.jpg",
+      "heroImage": "/assets/restaurants/joyce-01.jpg",
+      "story": {
+        "title": "Our Story",
+        "content": "The Joyce Restaurant offers a unique dining experience with contemporary cuisine.",
+        "additional": ""
+      },
+      "vision": {
+        "title": "The Experience",
+        "content": "A destination for food lovers seeking exceptional quality and service."
+      },
+      "gallery": [],
+      "features": []
+    },
+    {
+      "id": "dorsia",
+      "slug": "dorsia",
+      "name": "Dorsia",
+      "location": "Location",
+      "thumbnail": "/assets/restaurants/dorsia-01.jpg",
+      "heroImage": "/assets/restaurants/dorsia-01.jpg",
+      "story": {
+        "title": "Your Key to the World's Most Exclusive Tables",
+        "content": "Imagine having a reservation at the world's most sought-after restaurants—at your fingertips. Dorsia is a members-only platform giving you direct, exclusive access to premier dining destinations worldwide. We open doors that others can't.",
+        "additional": "Membership with Dorsia unlocks a world of culinary excellence. We partner with Michelin-starred restaurants and celebrated chefs to curate a collection of extraordinary dining experiences. Our platform is designed for those who appreciate the best, offering not just a reservation, but a guarantee of a truly remarkable meal. Say goodbye to long waitlists and endless phone calls; with Dorsia, the perfect table is always within reach."
+      },
+      "vision": {
+        "title": "Concept",
+        "content": "Our members enjoy the privilege of effortless booking at top-tier restaurants in major culinary cities. Whether you're planning a last-minute dinner or a special celebration months in advance, the process is seamless and discreet. We believe that securing an exceptional dining experience should be as enjoyable as the meal itself."
+      },
+      "gallery": [
+        "/assets/restaurants/dorsia-02.jpg",
+        "/assets/restaurants/dorsia-03.jpg",
+        "/assets/restaurants/dorsia-04.jpg"
+      ],
+      "features": []
+    },
+    {
+      "id": "ramenme",
+      "slug": "ramenme",
+      "name": "Ramen Me!",
+      "location": "Location",
+      "thumbnail": "/assets/restaurants/ramen-01.jpg",
+      "heroImage": "/assets/restaurants/ramen-01.jpg",
+      "story": {
+        "title": "Our Story",
+        "content": "Ramen Me! brings authentic Japanese ramen to London.",
+        "additional": ""
+      },
+      "vision": {
+        "title": "The Experience",
+        "content": "Traditional ramen crafted with passion and authentic ingredients."
+      },
+      "gallery": [],
+      "features": []
+    },
+    {
+      "id": "thamel",
+      "slug": "thamel",
+      "name": "Thamel Restaurant Porto",
+      "location": "Location",
+      "thumbnail": "/assets/restaurants/thamel-01.jpg",
+      "heroImage": "/assets/restaurants/thamel-01.jpg",
+      "story": {
+        "title": "Our Story",
+        "content": "Thamel Restaurant brings authentic Nepalese cuisine to Porto.",
+        "additional": ""
+      },
+      "vision": {
+        "title": "The Experience",
+        "content": "Experience the flavors of Nepal in the heart of Porto."
+      },
+      "gallery": [],
+      "features": []
+    },
+    {
+      "id": "byron",
+      "slug": "byron",
+      "name": "Byron",
+      "location": "Location",
+      "thumbnail": "/assets/restaurants/byron-01.jpg",
+      "heroImage": "/assets/restaurants/byron-01.jpg",
+      "story": {
+        "title": "Our Story",
+        "content": "Byron is known for its premium burgers and casual dining experience.",
+        "additional": ""
+      },
+      "vision": {
+        "title": "The Brand",
+        "content": "Quality burgers made with the finest British beef."
+      },
+      "gallery": [],
+      "features": []
+    }
+  ]
+}

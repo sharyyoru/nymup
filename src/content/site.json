@@ -1,0 +1,41 @@
+{
+  "siteName": "Niyamo Capital",
+  "tagline": "Where Vision Meets Destination",
+  "description": "Driving growth through strategic investments and expert financial guidance. Partner with us to unlock your business's full potential.",
+  "logo": "/assets/img/logo/logo-2.png",
+  "logoLight": "/assets/img/logo/footer-logo-1.png",
+  "favicon": "/assets/img/favicon.png",
+  "contact": {
+    "email": "jenna@niyamocapital.com",
+    "address": "32 Curzon Street, London W1J 7WS",
+    "addressLink": "https://www.google.com/maps/place/32+Curzon+St,+London+W1J+7WS,+UK/@51.506426,-0.1487205,17z"
+  },
+  "social": {
+    "facebook": "",
+    "twitter": "",
+    "linkedin": "",
+    "instagram": ""
+  },
+  "navigation": [
+    { "label": "Home", "href": "/" },
+    { "label": "About Us", "href": "/about" },
+    { "label": "Investments", "href": "/investments" }
+  ],
+  "footerLinks": {
+    "investments": [
+      { "label": "16 Charles St.", "href": "/investments/16charles" },
+      { "label": "BKC", "href": "/investments/bkc" },
+      { "label": "Coupette", "href": "/investments/coupette" },
+      { "label": "The Joyce", "href": "/investments/thejoyce" },
+      { "label": "Dorsia", "href": "/investments/dorsia" }
+    ],
+    "corporate": [
+      { "label": "About Us", "href": "/about" },
+      { "label": "Contact Us", "href": "/contact" }
+    ],
+    "legal": [
+      { "label": "Cookies Policy", "href": "/cookies-policy" },
+      { "label": "Privacy Policy", "href": "/privacy-policy" }
+    ]
+  }
+}

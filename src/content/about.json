@@ -1,0 +1,64 @@
+{
+  "pageTitle": "About us",
+  "breadcrumb": "About Us",
+  "heroSection": {
+    "title": "Investing for Enduring Growth",
+    "semiTitle": "About Us",
+    "description": "Niyamo Capital UK Ltd, is the UK investment arm of <strong>Niyamo Capital LLC.</strong>",
+    "content": "<strong>At Niyamo, our vision is clear:</strong> To be a trusted and impactful investment firm dedicated to empowering our partners. We understand that true financial success isn't just about quick wins; it's about building a secure future. That's why we focus on strategically cultivating worthwhile investments that prioritize stable, long-term returns and contribute positively to enduring value creation.",
+    "image": "/assets/img/about/about-1.png",
+    "buttons": [
+      { "text": "Get In Touch", "link": "/contact" },
+      { "text": "Our Services", "link": "/about" }
+    ]
+  },
+  "mainContent": {
+    "heroImage": "/assets/img/portfolio/uk-01.png",
+    "sections": [
+      {
+        "title": "Stable Returns. Lasting Value.",
+        "content": "We envision a portfolio marked by investments that consistently deliver predictable performance, effectively mitigating unnecessary volatility and safeguarding your capital. Our primary objective extends beyond simply maximizing short-term gains. Instead, we are committed to building a robust foundation for sustained growth and reliable returns over time, ensuring your financial aspirations are not just met, but exceeded, for years to come."
+      },
+      {
+        "title": "Cultivating Intrinsic Value",
+        "content": "We go beyond short-term trends, meticulously identifying and nurturing investments with inherent strength and long-term growth potential. Our due diligence is rigorous, ensuring we invest in opportunities with solid fundamentals and sustainable business models. We believe in building value that endures."
+      },
+      {
+        "title": "Experienced and Disciplined Team",
+        "content": "Our team comprises seasoned professionals, with a deep understanding of diverse markets and asset classes. We apply a disciplined and analytical approach to every investment decision, guided by a long-term perspective and a commitment to prudent risk management. Expertise you can rely on."
+      }
+    ],
+    "gallery": [
+      "/assets/img/portfolio/portfolio-26.jpg",
+      "/assets/img/portfolio/portfolio-27.jpg",
+      "/assets/img/portfolio/portfolio-28.jpg"
+    ],
+    "gallery2": [
+      "/assets/img/portfolio/portfolio-uk01.jpg",
+      "/assets/img/portfolio/portfolio-uk02.jpg",
+      "/assets/img/portfolio/portfolio-uk03.jpg"
+    ],
+    "pillars": [
+      {
+        "number": "01",
+        "title": "What we do",
+        "content": "Driving growth through strategic investments and expert financial guidance."
+      },
+      {
+        "number": "02",
+        "title": "A Trusted Partner",
+        "content": "Trust, open communication, and a shared commitment to long-term success will be the cornerstones of these partnerships."
+      },
+      {
+        "number": "03",
+        "title": "Expertise and Prudent Management",
+        "content": "Our vision is underpinned by a team of experienced and insightful professionals, who employ rigorous analysis, disciplined risk management, and a long-term perspective in all investment decisions. We are committed to continuous learning and adapting to evolving market landscapes, to ensure the consistent delivery of stable and worthwhile returns."
+      },
+      {
+        "number": "04",
+        "title": "Focus on Stability",
+        "content": "We prioritise investments with a proven track record of consistent performance, aiming to mitigate unnecessary risks and provide a more predictable path to your financial goals. We understand that stable returns form the bedrock of lasting wealth."
+      }
+    ]
+  }
+}
