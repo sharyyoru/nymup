@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
-import { Plus, Edit2, Trash2, Save, X, User } from 'lucide-react';
+import { Plus, Edit2, Trash2, Save, X, User, Upload } from 'lucide-react';
 import { getTeamContent } from '@/lib/content';
 
 export default function AdminTeamPage() {
@@ -10,6 +10,19 @@ export default function AdminTeamPage() {
   const [members, setMembers] = useState(teamContent.members);
   const [intro, setIntro] = useState(teamContent.intro);
   const [editingMember, setEditingMember] = useState<string | null>(null);
+  const fileInputRefs = useRef<{ [key: string]: HTMLInputElement | null }>({});
+
+  const handleImageUpload = (memberId: string, file: File) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const result = e.target?.result as string;
+      // For demo, we'll use a placeholder path. In production, upload to server/CDN
+      // For now, we'll store the file name and assume it's uploaded to /assets/img/team/
+      const imagePath = `/assets/img/team/${file.name}`;
+      handleMemberChange(memberId, 'image', imagePath);
+    };
+    reader.readAsDataURL(file);
+  };
 
   const handleIntroChange = (field: string, value: string) => {
     setIntro({ ...intro, [field]: value });
@@ -140,13 +153,30 @@ export default function AdminTeamPage() {
                       placeholder="Role"
                       className="w-full px-3 py-2 border border-gray-300 rounded text-sm"
                     />
-                    <input
-                      type="text"
-                      value={member.image}
-                      onChange={(e) => handleMemberChange(member.id, 'image', e.target.value)}
-                      placeholder="Image URL"
-                      className="w-full px-3 py-2 border border-gray-300 rounded text-sm"
-                    />
+                    {/* Image Upload */}
+                    <div>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        ref={(el) => { fileInputRefs.current[member.id] = el; }}
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          if (file) handleImageUpload(member.id, file);
+                        }}
+                        className="hidden"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => fileInputRefs.current[member.id]?.click()}
+                        className="w-full flex items-center justify-center gap-2 px-3 py-2 border border-dashed border-gray-300 rounded text-sm text-gray-600 hover:border-[#a3b18a] hover:text-[#a3b18a] transition-colors"
+                      >
+                        <Upload className="w-4 h-4" />
+                        {member.image ? 'Change Image' : 'Upload Image'}
+                      </button>
+                      {member.image && (
+                        <p className="text-xs text-gray-500 mt-1 truncate">{member.image}</p>
+                      )}
+                    </div>
                     <textarea
                       value={member.bio}
                       onChange={(e) => handleMemberChange(member.id, 'bio', e.target.value)}

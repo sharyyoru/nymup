@@ -96,7 +96,7 @@ export default function HeroSlider() {
       {mounted && (
         <button
           onClick={scrollToNextSection}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center text-white/80 hover:text-white transition-colors group"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center text-white hover:text-white/80 transition-colors group"
           aria-label="Scroll down"
         >
           <span className="text-sm uppercase tracking-[3px] font-medium mb-1">Scroll</span>
