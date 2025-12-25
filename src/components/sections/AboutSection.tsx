@@ -21,8 +21,8 @@ export default function AboutSection() {
           <div className="lg:w-5/12">
             <div className="mb-8">
               <div className="flex items-center gap-2 mb-4">
-                <Sparkles className="w-4 h-4 text-[#c9a96e]" />
-                <span className="text-[#7c8a7c] text-xs uppercase tracking-[4px] font-semibold">
+                <Sparkles className="w-4 h-4 text-[#a3b18a]" />
+                <span className="text-[#a3b18a] text-xs uppercase tracking-[4px] font-bold">
                   {about.semiTitle}
                 </span>
               </div>
@@ -35,7 +35,7 @@ export default function AboutSection() {
               />
             </div>
 
-            <div className="flex gap-5 mb-8 items-start p-5 bg-[#f8f9fa] rounded-xl border-l-4 border-[#c9a96e]">
+            <div className="flex gap-5 mb-8 items-start p-5 bg-[#f8f9fa] rounded-xl border-l-4 border-[#a3b18a]">
               <div className="w-16 h-16 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
                 <Image
                   src={about.image}
@@ -55,7 +55,7 @@ export default function AboutSection() {
 
             <Link
               href={about.buttonLink}
-              className="inline-flex items-center gap-3 bg-[#083d59] hover:bg-[#c9a96e] text-white px-8 py-4 text-sm transition-all duration-300 font-semibold rounded-full shadow-lg hover:shadow-xl group"
+              className="inline-flex items-center gap-3 bg-[#a3b18a] hover:bg-[#8a9a73] text-white px-8 py-4 text-sm transition-all duration-300 font-bold uppercase tracking-wider group"
             >
               {about.buttonText}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -86,7 +86,7 @@ export default function AboutSection() {
                     <p className="text-gray-500 text-sm mb-4 leading-relaxed">{feature.subtitle}</p>
                     <Link
                       href={feature.link}
-                      className="inline-flex items-center gap-2 text-[#c9a96e] hover:text-[#083d59] text-sm font-semibold transition-colors group/link"
+                      className="inline-flex items-center gap-2 text-[#a3b18a] hover:text-[#083d59] text-sm font-bold uppercase tracking-wider transition-colors group/link"
                     >
                       <span>Read More</span>
                       <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />

@@ -109,7 +109,7 @@ export default function HeroSlider() {
                   >
                     <Link
                       href={slides[currentSlide].buttonLink}
-                      className="inline-flex items-center gap-3 bg-[#c9a96e] hover:bg-white hover:text-[#083d59] text-white px-10 py-4 text-sm font-semibold tracking-wider transition-all duration-500 shadow-xl hover:shadow-2xl rounded-full group"
+                      className="inline-flex items-center gap-3 bg-[#a3b18a] hover:bg-[#8a9a73] text-white px-10 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-300 group"
                     >
                       {slides[currentSlide].buttonText}
                       <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 interface PageTitleProps {
   title: string;
@@ -17,30 +16,24 @@ export default function PageTitle({
 }: PageTitleProps) {
   return (
     <section
-      className="relative bg-cover bg-center bg-no-repeat py-32 md:py-40"
+      className="relative bg-cover bg-center bg-no-repeat py-36 md:py-44"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <div className="absolute inset-0 bg-[#1a1a2e]/70"></div>
-      <Image
-        src="/assets/img/cta/dot-shape-1.png"
-        alt="Dot Pattern"
-        width={200}
-        height={200}
-        className="absolute right-0 top-1/2 -translate-y-1/2 opacity-30"
-      />
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="pt-10">
-          <ul className="flex items-center gap-2 text-white/80 mb-4">
+      <div className="absolute inset-0 bg-[#083d59]/80"></div>
+      <div className="container mx-auto px-4 lg:px-12 relative z-10">
+        <div className="pt-12">
+          <ul className="flex items-center gap-3 text-white/70 mb-6 text-sm uppercase tracking-wider">
             <li>
-              <Link href="/" className="hover:text-[#c9a96e] transition-colors">
-                Home /
+              <Link href="/" className="hover:text-[#a3b18a] transition-colors font-medium">
+                Home
               </Link>
             </li>
-            <li className="text-[#c9a96e]">{breadcrumb}</li>
+            <li className="text-white/40">/</li>
+            <li className="text-[#a3b18a] font-medium">{breadcrumb}</li>
           </ul>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight">
             {title}
-          </h2>
+          </h1>
         </div>
       </div>
     </section>

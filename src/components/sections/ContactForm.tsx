@@ -2,10 +2,8 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { User, Mail, MessageSquare, Send, CheckCircle } from 'lucide-react';
 import { getPagesContent } from '@/lib/content';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 
 export default function ContactForm() {
   const pagesContent = getPagesContent();
@@ -17,56 +15,82 @@ export default function ContactForm() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
     
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ fullName: '', email: '', message: '' });
+      } else {
+        setError('Failed to send message. Please try again.');
+      }
+    } catch {
+      setError('Failed to send message. Please try again.');
+    }
     
-    setSubmitted(true);
     setIsSubmitting(false);
-    setFormData({ fullName: '', email: '', message: '' });
   };
 
   return (
-    <section className="py-20 md:py-28">
-      <div className="container mx-auto px-4">
-        <div className="border-b border-gray-200 pb-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden">
-              <Image
-                src={contact.image}
-                alt="Contact"
-                fill
-                className="object-cover"
-              />
+    <section className="py-24 md:py-32 bg-gray-50">
+      <div className="container mx-auto px-4 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Image */}
+          <div className="relative h-[450px] lg:h-[600px] overflow-hidden">
+            <Image
+              src={contact.image}
+              alt="Contact"
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          {/* Form */}
+          <div>
+            <div className="mb-10">
+              <span className="text-[#a3b18a] text-sm font-bold uppercase tracking-[3px] mb-4 block">
+                {contact.semiTitle}
+              </span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#083d59] leading-tight">
+                {contact.title}
+              </h2>
             </div>
 
-            <div>
-              <div className="mb-8">
-                <h6 className="text-[#c9a96e] text-sm uppercase tracking-wider mb-3">
-                  {contact.semiTitle}
-                </h6>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a1a2e] mb-6">
-                  {contact.title}
-                </h2>
+            {submitted ? (
+              <div className="bg-[#a3b18a]/10 border-2 border-[#a3b18a] p-10 text-center">
+                <CheckCircle className="w-16 h-16 text-[#a3b18a] mx-auto mb-4" />
+                <h3 className="text-2xl font-bold text-[#083d59] mb-2">
+                  Message Sent!
+                </h3>
+                <p className="text-gray-600">
+                  Thank you for reaching out. We will get back to you shortly.
+                </p>
               </div>
-
-              {submitted ? (
-                <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
-                  <h3 className="text-xl font-semibold text-green-800 mb-2">
-                    Thank you for your message!
-                  </h3>
-                  <p className="text-green-600">
-                    We will get back to you as soon as possible.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <Input
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {error && (
+                  <div className="bg-red-50 border border-red-200 text-red-600 p-4 text-sm">
+                    {error}
+                  </div>
+                )}
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="relative">
+                    <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
                       type="text"
                       placeholder="Full name"
                       value={formData.fullName}
@@ -74,9 +98,12 @@ export default function ContactForm() {
                         setFormData({ ...formData, fullName: e.target.value })
                       }
                       required
-                      className="h-14 border-gray-300 focus:border-[#c9a96e] focus:ring-[#c9a96e]"
+                      className="w-full h-14 pl-12 pr-4 border border-gray-200 bg-white text-[#083d59] placeholder-gray-400 focus:border-[#a3b18a] focus:ring-2 focus:ring-[#a3b18a]/20 outline-none transition-all"
                     />
-                    <Input
+                  </div>
+                  <div className="relative">
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
                       type="email"
                       placeholder="Email address"
                       value={formData.email}
@@ -84,10 +111,14 @@ export default function ContactForm() {
                         setFormData({ ...formData, email: e.target.value })
                       }
                       required
-                      className="h-14 border-gray-300 focus:border-[#c9a96e] focus:ring-[#c9a96e]"
+                      className="w-full h-14 pl-12 pr-4 border border-gray-200 bg-white text-[#083d59] placeholder-gray-400 focus:border-[#a3b18a] focus:ring-2 focus:ring-[#a3b18a]/20 outline-none transition-all"
                     />
                   </div>
-                  <Textarea
+                </div>
+                
+                <div className="relative">
+                  <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-gray-400" />
+                  <textarea
                     placeholder="Enter message"
                     value={formData.message}
                     onChange={(e) =>
@@ -95,18 +126,20 @@ export default function ContactForm() {
                     }
                     required
                     rows={6}
-                    className="border-gray-300 focus:border-[#c9a96e] focus:ring-[#c9a96e]"
+                    className="w-full pl-12 pr-4 py-4 border border-gray-200 bg-white text-[#083d59] placeholder-gray-400 focus:border-[#a3b18a] focus:ring-2 focus:ring-[#a3b18a]/20 outline-none transition-all resize-none"
                   />
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="bg-[#1a1a2e] hover:bg-[#2a2a3e] text-white px-8 py-6 text-lg"
-                  >
-                    {isSubmitting ? 'Sending...' : contact.form.submitText}
-                  </Button>
-                </form>
-              )}
-            </div>
+                </div>
+                
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="inline-flex items-center gap-3 bg-[#a3b18a] hover:bg-[#8a9a73] disabled:opacity-50 disabled:cursor-not-allowed text-white px-10 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-300 group"
+                >
+                  {isSubmitting ? 'Sending...' : 'Send us a Message'}
+                  <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { getSiteContent } from '@/lib/content';
 
 interface HeaderProps {
@@ -33,36 +33,35 @@ export default function Header({ variant = 'transparent' }: HeaderProps) {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           showWhiteHeader
-            ? 'bg-white/95 backdrop-blur-md shadow-lg py-3'
+            ? 'bg-white shadow-xl py-4'
             : 'bg-transparent py-6'
         }`}
       >
-        <div className="container mx-auto px-4 lg:px-8">
+        <div className="container mx-auto px-4 lg:px-12">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="relative z-10 flex-shrink-0">
               <Image
                 src="/assets/img/logo/footer-logo-1.png"
                 alt={siteContent.siteName}
-                width={180}
-                height={60}
-                className={`transition-all duration-300 ${showWhiteHeader ? 'h-14' : 'h-16'} w-auto`}
+                width={200}
+                height={70}
+                className={`transition-all duration-300 ${showWhiteHeader ? 'h-12' : 'h-14'} w-auto`}
                 priority
               />
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-12">
+            <nav className="hidden lg:flex items-center gap-10">
               {siteContent.navigation.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-[15px] font-semibold tracking-wide transition-all duration-300 hover:text-[#c9a96e] relative group ${
+                  className={`text-[15px] font-bold uppercase tracking-wider transition-all duration-300 hover:text-[#a3b18a] ${
                     showWhiteHeader ? 'text-[#083d59]' : 'text-white'
                   }`}
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#c9a96e] transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
             </nav>
@@ -71,19 +70,20 @@ export default function Header({ variant = 'transparent' }: HeaderProps) {
             <div className="flex items-center gap-6">
               <Link
                 href="/contact"
-                className="hidden md:inline-flex bg-[#c9a96e] hover:bg-[#b8986d] hover:scale-105 text-white px-8 py-3 rounded-full transition-all duration-300 text-[14px] font-semibold tracking-wide shadow-lg hover:shadow-xl"
+                className="hidden md:inline-flex items-center gap-2 bg-[#a3b18a] hover:bg-[#8a9a73] text-white px-7 py-3.5 transition-all duration-300 text-[14px] font-bold uppercase tracking-wider group"
               >
-                Contact Us
+                Get In Touch
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
 
               {/* Mobile Menu Button */}
               {mounted && (
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className={`lg:hidden p-2 rounded-lg transition-colors ${
+                  className={`lg:hidden p-2 transition-colors ${
                     showWhiteHeader 
-                      ? 'text-[#083d59] hover:bg-gray-100' 
-                      : 'text-white hover:bg-white/10'
+                      ? 'text-[#083d59]' 
+                      : 'text-white'
                   }`}
                   aria-label="Toggle menu"
                 >
@@ -99,33 +99,33 @@ export default function Header({ variant = 'transparent' }: HeaderProps) {
       {mounted && mobileMenuOpen && (
         <>
           <div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+            className="fixed inset-0 bg-[#083d59]/90 backdrop-blur-sm z-40 lg:hidden"
             onClick={() => setMobileMenuOpen(false)}
           />
-          <aside className="fixed top-0 right-0 h-full w-[320px] bg-white z-50 shadow-2xl lg:hidden transform transition-transform">
+          <aside className="fixed top-0 right-0 h-full w-[320px] bg-white z-50 shadow-2xl lg:hidden">
             <div className="p-8">
-              <div className="flex items-center justify-between mb-10">
+              <div className="flex items-center justify-between mb-12">
                 <Image
                   src="/assets/img/logo/footer-logo-1.png"
                   alt={siteContent.siteName}
                   width={140}
                   height={45}
-                  className="h-12 w-auto"
+                  className="h-10 w-auto"
                 />
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-[#083d59] p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  className="text-[#083d59] p-2"
                 >
                   <X className="h-6 w-6" />
                 </button>
               </div>
-              <nav className="flex flex-col gap-2">
+              <nav className="flex flex-col gap-1">
                 {siteContent.navigation.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-[#083d59] text-lg font-semibold hover:text-[#c9a96e] hover:bg-[#c9a96e]/5 transition-all py-4 px-4 rounded-lg border-b border-gray-100"
+                    className="text-[#083d59] text-xl font-bold uppercase tracking-wider hover:text-[#a3b18a] transition-all py-4 border-b border-gray-100"
                   >
                     {item.label}
                   </Link>
@@ -133,18 +133,19 @@ export default function Header({ variant = 'transparent' }: HeaderProps) {
                 <Link
                   href="/contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-[#083d59] text-lg font-semibold hover:text-[#c9a96e] hover:bg-[#c9a96e]/5 transition-all py-4 px-4 rounded-lg border-b border-gray-100"
+                  className="text-[#083d59] text-xl font-bold uppercase tracking-wider hover:text-[#a3b18a] transition-all py-4 border-b border-gray-100"
                 >
                   Contact
                 </Link>
               </nav>
-              <div className="mt-10">
+              <div className="mt-12">
                 <Link
                   href="/contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full bg-[#c9a96e] hover:bg-[#b8986d] text-white text-center px-6 py-4 rounded-full transition-all duration-300 font-semibold shadow-lg"
+                  className="flex items-center justify-center gap-2 w-full bg-[#a3b18a] hover:bg-[#8a9a73] text-white text-center px-6 py-4 transition-all duration-300 font-bold uppercase tracking-wider"
                 >
                   Get In Touch
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
