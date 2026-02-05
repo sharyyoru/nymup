@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { put, head } from '@vercel/blob';
+import { put, list, del } from '@vercel/blob';
 
 const VALID_FILES = ['home', 'about', 'investments', 'site', 'pages', 'team'];
 
@@ -21,17 +21,26 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Delete existing blob with same prefix first (to avoid duplicates)
+    try {
+      const existingBlobs = await list({ prefix: `content/${file}` });
+      for (const blob of existingBlobs.blobs) {
+        await del(blob.url);
+      }
+    } catch (e) {
+      // Ignore errors when listing/deleting - might not exist yet
+    }
+
     // Save to Vercel Blob storage
     const blob = await put(`content/${file}.json`, JSON.stringify(data, null, 2), {
       access: 'public',
-      addRandomSuffix: false,
     });
 
     return NextResponse.json({ success: true, message: 'Content saved successfully', url: blob.url });
-  } catch (error) {
-    console.error('Error saving content:', error);
+  } catch (error: any) {
+    console.error('Error saving content:', error?.message || error);
     return NextResponse.json(
-      { error: 'Failed to save content' },
+      { error: `Failed to save content: ${error?.message || 'Unknown error'}` },
       { status: 500 }
     );
   }
@@ -56,14 +65,15 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Try to get from Vercel Blob
-    const blobUrl = `${process.env.BLOB_URL || ''}/content/${file}.json`;
-    
+    // Try to get from Vercel Blob by listing blobs with prefix
     try {
-      const response = await fetch(blobUrl);
-      if (response.ok) {
-        const content = await response.json();
-        return NextResponse.json(content);
+      const blobs = await list({ prefix: `content/${file}` });
+      if (blobs.blobs.length > 0) {
+        const response = await fetch(blobs.blobs[0].url);
+        if (response.ok) {
+          const content = await response.json();
+          return NextResponse.json(content);
+        }
       }
     } catch {
       // Fall through to return error
@@ -73,8 +83,8 @@ export async function GET(request: NextRequest) {
       { error: 'Content not found' },
       { status: 404 }
     );
-  } catch (error) {
-    console.error('Error reading content:', error);
+  } catch (error: any) {
+    console.error('Error reading content:', error?.message || error);
     return NextResponse.json(
       { error: 'Failed to read content' },
       { status: 500 }
