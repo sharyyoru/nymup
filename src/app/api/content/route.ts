@@ -1,8 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
-
-const CONTENT_DIR = path.join(process.cwd(), 'src', 'content');
+import { put, head } from '@vercel/blob';
 
 const VALID_FILES = ['home', 'about', 'investments', 'site', 'pages', 'team'];
 
@@ -24,12 +21,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const filePath = path.join(CONTENT_DIR, `${file}.json`);
-    
-    // Write the JSON file
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
+    // Save to Vercel Blob storage
+    const blob = await put(`content/${file}.json`, JSON.stringify(data, null, 2), {
+      access: 'public',
+      addRandomSuffix: false,
+    });
 
-    return NextResponse.json({ success: true, message: 'Content saved successfully' });
+    return NextResponse.json({ success: true, message: 'Content saved successfully', url: blob.url });
   } catch (error) {
     console.error('Error saving content:', error);
     return NextResponse.json(
@@ -58,10 +56,23 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const filePath = path.join(CONTENT_DIR, `${file}.json`);
-    const content = fs.readFileSync(filePath, 'utf-8');
+    // Try to get from Vercel Blob
+    const blobUrl = `${process.env.BLOB_URL || ''}/content/${file}.json`;
     
-    return NextResponse.json(JSON.parse(content));
+    try {
+      const response = await fetch(blobUrl);
+      if (response.ok) {
+        const content = await response.json();
+        return NextResponse.json(content);
+      }
+    } catch {
+      // Fall through to return error
+    }
+
+    return NextResponse.json(
+      { error: 'Content not found' },
+      { status: 404 }
+    );
   } catch (error) {
     console.error('Error reading content:', error);
     return NextResponse.json(
