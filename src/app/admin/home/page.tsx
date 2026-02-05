@@ -14,11 +14,28 @@ export default function HomePageAdmin() {
   const homeContent = getHomeContent();
   const [formData, setFormData] = useState(homeContent);
   const [saved, setSaved] = useState(false);
+  const [saving, setSaving] = useState(false);
 
-  const handleSave = () => {
-    console.log('Saving home page content:', formData);
-    setSaved(true);
-    setTimeout(() => setSaved(false), 3000);
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      const response = await fetch('/api/content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ file: 'home', data: formData }),
+      });
+      if (response.ok) {
+        setSaved(true);
+        setTimeout(() => setSaved(false), 3000);
+      } else {
+        alert('Failed to save changes');
+      }
+    } catch (error) {
+      console.error('Error saving:', error);
+      alert('Failed to save changes');
+    } finally {
+      setSaving(false);
+    }
   };
 
   const updateSlide = (index: number, field: string, value: string | string[]) => {
@@ -64,7 +81,7 @@ export default function HomePageAdmin() {
         </div>
         <Button onClick={handleSave} className="bg-[#c9a96e] hover:bg-[#b8986d]">
           <Save className="w-4 h-4 mr-2" />
-          {saved ? 'Saved!' : 'Save Changes'}
+          {saving ? 'Saving...' : saved ? 'Saved!' : 'Save Changes'}
         </Button>
       </div>
 

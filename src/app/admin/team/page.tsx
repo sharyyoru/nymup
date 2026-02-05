@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import { Plus, Edit2, Trash2, Save, X, User, Upload } from 'lucide-react';
 import { getTeamContent } from '@/lib/content';
@@ -10,7 +10,31 @@ export default function AdminTeamPage() {
   const [members, setMembers] = useState(teamContent.members);
   const [intro, setIntro] = useState(teamContent.intro);
   const [editingMember, setEditingMember] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [saved, setSaved] = useState(false);
   const fileInputRefs = useRef<{ [key: string]: HTMLInputElement | null }>({});
+
+  const handleSaveAll = async () => {
+    setSaving(true);
+    try {
+      const response = await fetch('/api/content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ file: 'team', data: { intro, members } }),
+      });
+      if (response.ok) {
+        setSaved(true);
+        setTimeout(() => setSaved(false), 3000);
+      } else {
+        alert('Failed to save changes');
+      }
+    } catch (error) {
+      console.error('Error saving:', error);
+      alert('Failed to save changes');
+    } finally {
+      setSaving(false);
+    }
+  };
 
   const handleImageUpload = (memberId: string, file: File) => {
     const reader = new FileReader();
@@ -244,9 +268,13 @@ export default function AdminTeamPage() {
 
       {/* Save Button */}
       <div className="mt-8 flex justify-end">
-        <button className="flex items-center gap-2 bg-[#083d59] hover:bg-[#062d42] text-white px-8 py-3 transition-colors font-medium">
+        <button
+          onClick={handleSaveAll}
+          disabled={saving}
+          className="flex items-center gap-2 bg-[#083d59] hover:bg-[#062d42] text-white px-8 py-3 transition-colors font-medium disabled:opacity-50"
+        >
           <Save className="w-5 h-5" />
-          Save All Changes
+          {saving ? 'Saving...' : saved ? 'Saved!' : 'Save All Changes'}
         </button>
       </div>
     </div>

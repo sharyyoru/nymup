@@ -15,11 +15,35 @@ export default function ContactSettingsPage() {
   const [siteData, setSiteData] = useState(siteContent);
   const [contactPageData, setContactPageData] = useState(pagesContent.contact);
   const [saved, setSaved] = useState(false);
+  const [saving, setSaving] = useState(false);
 
-  const handleSave = () => {
-    console.log('Saving contact settings:', { siteData, contactPageData });
-    setSaved(true);
-    setTimeout(() => setSaved(false), 3000);
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      // Save site contact info
+      const siteResponse = await fetch('/api/content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ file: 'site', data: siteData }),
+      });
+      // Save contact page data
+      const pagesResponse = await fetch('/api/content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ file: 'pages', data: { ...pagesContent, contact: contactPageData } }),
+      });
+      if (siteResponse.ok && pagesResponse.ok) {
+        setSaved(true);
+        setTimeout(() => setSaved(false), 3000);
+      } else {
+        alert('Failed to save changes');
+      }
+    } catch (error) {
+      console.error('Error saving:', error);
+      alert('Failed to save changes');
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
@@ -31,7 +55,7 @@ export default function ContactSettingsPage() {
         </div>
         <Button onClick={handleSave} className="bg-[#c9a96e] hover:bg-[#b8986d]">
           <Save className="w-4 h-4 mr-2" />
-          {saved ? 'Saved!' : 'Save Changes'}
+          {saving ? 'Saving...' : saved ? 'Saved!' : 'Save Changes'}
         </Button>
       </div>
 
