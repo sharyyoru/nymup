@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import { Plus, Edit2, Trash2, Save, X, User, Upload } from 'lucide-react';
+import { Plus, Edit2, Trash2, Save, X, User, Upload, Loader2 } from 'lucide-react';
 import { getTeamContent } from '@/lib/content';
 
 export default function AdminTeamPage() {
@@ -12,7 +12,27 @@ export default function AdminTeamPage() {
   const [editingMember, setEditingMember] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [loading, setLoading] = useState(true);
   const fileInputRefs = useRef<{ [key: string]: HTMLInputElement | null }>({});
+
+  // Load data from API on mount (reads from blob storage)
+  useEffect(() => {
+    async function loadContent() {
+      try {
+        const response = await fetch('/api/content?file=team');
+        if (response.ok) {
+          const data = await response.json();
+          if (data.members) setMembers(data.members);
+          if (data.intro) setIntro(data.intro);
+        }
+      } catch (error) {
+        console.error('Error loading content:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadContent();
+  }, []);
 
   const handleSaveAll = async () => {
     setSaving(true);
@@ -77,6 +97,14 @@ export default function AdminTeamPage() {
       setMembers(members.filter(m => m.id !== id));
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <Loader2 className="w-8 h-8 animate-spin text-[#083d59]" />
+      </div>
+    );
+  }
 
   return (
     <div>

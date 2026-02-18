@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -8,13 +8,31 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { getHomeContent } from '@/lib/content';
-import { Plus, Trash2, Save, GripVertical } from 'lucide-react';
+import { Plus, Trash2, Save, GripVertical, Loader2 } from 'lucide-react';
 
 export default function HomePageAdmin() {
   const homeContent = getHomeContent();
   const [formData, setFormData] = useState(homeContent);
   const [saved, setSaved] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadContent() {
+      try {
+        const response = await fetch('/api/content?file=home');
+        if (response.ok) {
+          const data = await response.json();
+          if (data && !data.error) setFormData(data);
+        }
+      } catch (error) {
+        console.error('Error loading content:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadContent();
+  }, []);
 
   const handleSave = async () => {
     setSaving(true);
@@ -71,6 +89,14 @@ export default function HomePageAdmin() {
     newFeatures[index] = { ...newFeatures[index], [field]: value };
     setFormData({ ...formData, about: { ...formData.about, features: newFeatures } });
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <Loader2 className="w-8 h-8 animate-spin text-gray-600" />
+      </div>
+    );
+  }
 
   return (
     <div>

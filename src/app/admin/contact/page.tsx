@@ -1,21 +1,58 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { getSiteContent, getPagesContent } from '@/lib/content';
-import { Save, Mail, MapPin, Phone } from 'lucide-react';
+import { Save, Mail, MapPin, Loader2 } from 'lucide-react';
 
 export default function ContactSettingsPage() {
   const siteContent = getSiteContent();
   const pagesContent = getPagesContent();
   const [siteData, setSiteData] = useState(siteContent);
   const [contactPageData, setContactPageData] = useState(pagesContent.contact);
+  const [fullPagesContent, setFullPagesContent] = useState(pagesContent);
   const [saved, setSaved] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadContent() {
+      try {
+        const [siteRes, pagesRes] = await Promise.all([
+          fetch('/api/content?file=site'),
+          fetch('/api/content?file=pages')
+        ]);
+        if (siteRes.ok) {
+          const data = await siteRes.json();
+          if (data && !data.error) setSiteData(data);
+        }
+        if (pagesRes.ok) {
+          const data = await pagesRes.json();
+          if (data && !data.error) {
+            setFullPagesContent(data);
+            if (data.contact) setContactPageData(data.contact);
+          }
+        }
+      } catch (error) {
+        console.error('Error loading content:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadContent();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <Loader2 className="w-8 h-8 animate-spin text-gray-600" />
+      </div>
+    );
+  }
 
   const handleSave = async () => {
     setSaving(true);
@@ -30,7 +67,7 @@ export default function ContactSettingsPage() {
       const pagesResponse = await fetch('/api/content', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ file: 'pages', data: { ...pagesContent, contact: contactPageData } }),
+        body: JSON.stringify({ file: 'pages', data: { ...fullPagesContent, contact: contactPageData } }),
       });
       if (siteResponse.ok && pagesResponse.ok) {
         setSaved(true);

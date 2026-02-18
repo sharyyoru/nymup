@@ -1,12 +1,41 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Mail, Linkedin } from 'lucide-react';
+import { Mail, Linkedin, Loader2 } from 'lucide-react';
 import { getTeamContent } from '@/lib/content';
 
 export default function TeamSection() {
-  const teamContent = getTeamContent();
+  const staticContent = getTeamContent();
+  const [teamContent, setTeamContent] = useState(staticContent);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadContent() {
+      try {
+        const response = await fetch('/api/content?file=team');
+        if (response.ok) {
+          const data = await response.json();
+          if (data && !data.error) setTeamContent(data);
+        }
+      } catch (error) {
+        console.error('Error loading team content:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadContent();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="py-24 md:py-32 bg-white">
+        <div className="flex items-center justify-center min-h-[400px]">
+          <Loader2 className="w-8 h-8 animate-spin text-[#083d59]" />
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-24 md:py-32 bg-white">

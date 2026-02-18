@@ -1,7 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { put, list, del } from '@vercel/blob';
+import fs from 'fs';
+import path from 'path';
 
 const VALID_FILES = ['home', 'about', 'investments', 'site', 'pages', 'team'];
+
+// Get static file content as fallback
+function getStaticContent(file: string) {
+  try {
+    const filePath = path.join(process.cwd(), 'src', 'content', `${file}.json`);
+    const content = fs.readFileSync(filePath, 'utf-8');
+    return JSON.parse(content);
+  } catch {
+    return null;
+  }
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -76,7 +89,13 @@ export async function GET(request: NextRequest) {
         }
       }
     } catch {
-      // Fall through to return error
+      // Fall through to static fallback
+    }
+
+    // Fall back to static file content
+    const staticContent = getStaticContent(file);
+    if (staticContent) {
+      return NextResponse.json(staticContent);
     }
 
     return NextResponse.json(
